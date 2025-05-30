@@ -32,6 +32,8 @@ public:
     virtual bool operator==(const Component &other);
     virtual Component* clone() const = 0;
     friend std::ostream& operator<<(std::ostream &os, const Component &comp);
+    virtual void print(std::ostream& os) const;  // Виртуальная функция для вывода
+    virtual void print_in_line(std::ostream& os) const;
 };
 
 
@@ -59,7 +61,8 @@ public:
     virtual bool operator==(const Component &other) override;
     bool IsEqual(const VideoCard &other);
     Component* clone() const override;
-    friend std::ostream& operator<<(std::ostream &os, VideoCard &vc);
+    void print(std::ostream& os) const override;
+    void print_in_line(std::ostream& os) const override;
 };
 
 
@@ -87,7 +90,8 @@ public:
     virtual bool operator==(const Component &other) override;
     bool IsEqual(const Processor &other);
     Component* clone() const override;
-    friend std::ostream& operator<<(std::ostream &os, Processor &pc);
+    void print(std::ostream& os) const override;
+    void print_in_line(std::ostream& os) const override;
 };
 
 

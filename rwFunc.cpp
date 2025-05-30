@@ -8,7 +8,7 @@
 using namespace std;
 
 
-int readFile(LinkedList *lst, string file)
+int readFile(LinkedList *lst, const string file)
 {
     unsigned short int i = 0;
     unsigned short int elementCount = 0;
@@ -50,7 +50,7 @@ int readFile(LinkedList *lst, string file)
     return elementCount;
 }
 
-int writeFile(Component *comp, int elementCount, std::string file)
+int writeFile(LinkedList *lst, const int elementCount, const string file)
 {
     ofstream out; // Поток для записи
     out.open(file); // Открытие файла
@@ -65,16 +65,11 @@ int writeFile(Component *comp, int elementCount, std::string file)
         return EXIT_FAILURE;
     }
 
-    out << setiosflags(ios::left) << std::setw(4) << "Id";
-    out << setiosflags(ios::left) << std::setw(9) << "Contract";
-    out << setiosflags(ios::left) << std::setw(25) << "Name";
-    out << setiosflags(ios::left) << std::setw(25) << "Type of work";
-    out << setiosflags(ios::left) << std::setw(6) << "Weeks";
-    out << setiosflags(ios::left) << std::setw(12) << "Price" << endl;
+    Node* ptr = lst->head;
 
-    for(int i = 0; i < elementCount; i++)
+    for(int i = 0; i < elementCount; i++, ptr = ptr->next)
     {
-
+        ptr->component->print_in_line(out);
     }
     out.close();
 

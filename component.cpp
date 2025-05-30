@@ -49,12 +49,22 @@ bool Component::operator==(const Component &other)
     return ((Name == other.Name) && (Model == other.Model) && (Manufacturer == other.Manufacturer) && (Price == other.Price));
 }
 ostream& operator<<(ostream &os, const Component &comp) {
-    os << "Name: " << comp.Name << endl;
-    os << "Model: " << comp.Model << endl;
-    os << "Manufacturer: " << comp.Manufacturer << endl;
-    os << "Price: " << comp.Price << endl;
+    comp.print(os);  // Вызов виртуальной функции
     return os;
 }
+void Component::print(std::ostream& os) const
+{
+    os << "Name: " << Name << endl;
+    os << "Model: " << Model << endl;
+    os << "Manufacturer: " << Manufacturer << endl;
+    os << "Price: " << Price << endl;
+}
+void Component::print_in_line(std::ostream& os) const
+{
+    os << Name << " " << Model << " " << Manufacturer << " " << Price <<  " ";
+}
+
+
 
 
 // Реализация методов класса VideoCard
@@ -113,12 +123,17 @@ Component* VideoCard::clone() const
 {
     return new VideoCard(*this);
 }
-ostream& operator<<(ostream &os, const VideoCard &vc) {
-    os << static_cast<const Component&>(vc);
-    os << "VideoMemory: " << vc.GetVideoMemory() << endl;
-    os << "Frequency: " << vc.GetFrequency() << endl;
-    os << "LHR: " << vc.GetLHR() << endl;
-    return os;
+void VideoCard::print(ostream& os) const
+{
+    Component::print(os);  // Вывод полей базового класса
+    os << "VideoMemory: " << VideoMemory << endl;
+    os << "Frequency: " << Frequency << endl;
+    os << "LHR: " << LHR << endl;
+}
+void VideoCard::print_in_line(ostream& os) const
+{
+    Component::print_in_line(os);  // Вывод полей базового класса
+    os << VideoMemory << " " << Frequency << " " << LHR << " " << endl;
 }
 
 
@@ -179,13 +194,18 @@ Component* Processor::clone() const
 {
     return new Processor(*this);
 }
-ostream& operator<<(ostream &os, const Processor &pc) {
-    os << static_cast<const Component&>(pc);
-    os << "Cores: " << pc.GetCores() << endl;
-    os << "Threads: " << pc.GetThreads() << endl;
-    os << "L2Cash: " << pc.GetL2Cash() << endl;
-    return os;
+void Processor::print(ostream& os) const {
+    Component::print(os);  // Вывод полей базового класса
+    os << "Cores: " << Cores << endl;
+    os << "Threads: " << Threads << endl;
+    os << "L2Cash: " << L2Cash << endl;
 }
+void Processor::print_in_line(ostream& os) const
+{
+    Component::print_in_line(os);  // Вывод полей базового класса
+    os << Cores << " " << Threads << " " << L2Cash << " " << endl;
+}
+
 
 
 // Методы класса LinkedList

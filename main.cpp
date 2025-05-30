@@ -13,7 +13,7 @@ int main()
     int COUNT;
     const string FILE = "data.db";
     COUNT = readFile(&lst, FILE);
-
-    cout << COUNT << endl;
+    lst.print_list();
+    writeFile(&lst, COUNT, "output.txt");
     return 0;
 }
