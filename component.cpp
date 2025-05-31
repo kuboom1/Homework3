@@ -61,9 +61,8 @@ void Component::print(std::ostream& os) const
 }
 void Component::print_in_line(std::ostream& os) const
 {
-    os << Name << " " << Model << " " << Manufacturer << " " << Price <<  " ";
+    os << Name << ";" << Model << ";" << Manufacturer << ";" << Price << ";";
 }
-
 
 
 
@@ -133,7 +132,7 @@ void VideoCard::print(ostream& os) const
 void VideoCard::print_in_line(ostream& os) const
 {
     Component::print_in_line(os);  // Вывод полей базового класса
-    os << VideoMemory << " " << Frequency << " " << LHR << " " << endl;
+    os << VideoMemory << ";" << Frequency << ";" << LHR << ";" << endl;
 }
 
 
@@ -203,7 +202,7 @@ void Processor::print(ostream& os) const {
 void Processor::print_in_line(ostream& os) const
 {
     Component::print_in_line(os);  // Вывод полей базового класса
-    os << Cores << " " << Threads << " " << L2Cash << " " << endl;
+    os << Cores << ";" << Threads << ";" << L2Cash << ";" << endl;
 }
 
 

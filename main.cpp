@@ -1,7 +1,5 @@
-#include <iostream>
-#include "component.h"
-#include "rwFunc.h"
-
+#include "menu.h"
+#include <fstream>
 using namespace std;
 
 int main()
@@ -9,11 +7,14 @@ int main()
     system("chcp 65001");
     system("cls");
 
-    LinkedList lst;
-    int COUNT;
-    const string FILE = "data.db";
-    COUNT = readFile(&lst, FILE);
-    lst.print_list();
-    writeFile(&lst, COUNT, "output.txt");
+    // ofstream logs;          // Поток для записи логов в файл
+    // logs.open("logs.txt");  // Окрываем файл для записи
+
+    const string inputFile = "data.db";
+    const string outputFile = "output.txt";
+    Menu menu;
+    menu.start_menu(inputFile, outputFile);
+
+    // logs.close();
     return 0;
 }

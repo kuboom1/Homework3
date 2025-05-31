@@ -6,10 +6,12 @@ CONFIG -= qt
 SOURCES += \
         component.cpp \
         main.cpp \
+        menu.cpp \
         rwFunc.cpp
 
 HEADERS += \
     component.h \
+    menu.h \
     rwFunc.h
 
 DISTFILES += \

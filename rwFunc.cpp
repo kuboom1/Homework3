@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <cstring>
 #include <iostream>
-#include <iomanip>
 
 using namespace std;
 
@@ -52,7 +51,7 @@ int readFile(LinkedList *lst, const string file)
 
 int writeFile(LinkedList *lst, const int elementCount, const string file)
 {
-    ofstream out; // Поток для записи
+    ofstream out; // Поток для записи (перезапись)
     out.open(file); // Открытие файла
     if (!out)
     {
