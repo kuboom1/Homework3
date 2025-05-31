@@ -9,7 +9,7 @@ using namespace std;
 // Реализация методов класса Component
 Component::Component()
 {
-    cout << "[INFO] - Вызван базовый конструктор (Component) " << this << endl;
+    //cout << "[INFO] - Вызван базовый конструктор (Component) " << this << endl;
     Name = "";
     Model = "";
     Manufacturer = "";
@@ -17,7 +17,7 @@ Component::Component()
 }
 Component::Component(string Name, string Model, string Manufacturer, int Price)
 {
-    cout << "[INFO] - Вызван конструктор с параметрами (Component) " << this << endl;
+    //cout << "[INFO] - Вызван конструктор с параметрами (Component) " << this << endl;
     this->Name = Name;
     this->Model = Model;
     this->Manufacturer = Manufacturer;
@@ -25,7 +25,7 @@ Component::Component(string Name, string Model, string Manufacturer, int Price)
 }
 Component::Component(const Component &other)
 {
-    cout << "[INFO] - Вызван конструктор копирования (Component) " << this << endl;
+    //cout << "[INFO] - Вызван конструктор копирования (Component) " << this << endl;
     Name = other.Name;
     Model = other.Model;
     Manufacturer = other.Manufacturer;
@@ -33,7 +33,7 @@ Component::Component(const Component &other)
 }
 Component::~Component()
 {
-    cout << "[INFO] - Вызван деструктор (Component) " << this << endl;
+    //cout << "[INFO] - Вызван деструктор (Component) " << this << endl;
 }
 void Component::operator =(const Component &other)
 {
@@ -45,7 +45,7 @@ void Component::operator =(const Component &other)
 }
 bool Component::operator==(const Component &other)
 {
-    cout << "[INFO] - Вызвана операция == (Component) " << this << endl;
+    //cout << "[INFO] - Вызвана операция == (Component) " << this << endl;
     return ((Name == other.Name) && (Model == other.Model) && (Manufacturer == other.Manufacturer) && (Price == other.Price));
 }
 ostream& operator<<(ostream &os, const Component &comp) {
@@ -69,21 +69,21 @@ void Component::print_in_line(std::ostream& os) const
 // Реализация методов класса VideoCard
 VideoCard::VideoCard()
 {
-    cout << "[INFO] - Вызван базовый конструктор (VideoCard) " << this << endl;
+    //cout << "[INFO] - Вызван базовый конструктор (VideoCard) " << this << endl;
     VideoMemory = 0;
     Frequency = 0;
     LHR = false;
 }
 VideoCard::VideoCard(string Name, string Model, string Manufacturer, int Price, int VideoMemory, int Frequency, bool LHR): Component(Name, Model, Manufacturer, Price)
 {
-    cout << "[INFO] - Вызван конструктор с параметрами (VideoCard) " << this << endl;
+    //cout << "[INFO] - Вызван конструктор с параметрами (VideoCard) " << this << endl;
     this->VideoMemory = VideoMemory;
     this->Frequency = Frequency;
     this->LHR = LHR;
 }
 VideoCard::VideoCard(const VideoCard &other): Component()
 {
-    cout << "[INFO] - Вызван конструктор копирования (VideoCard) " << this << endl;
+    //cout << "[INFO] - Вызван конструктор копирования (VideoCard) " << this << endl;
     Name = other.Name;
     Model = other.Model;
     Manufacturer = other.Manufacturer;
@@ -94,11 +94,11 @@ VideoCard::VideoCard(const VideoCard &other): Component()
 }
 VideoCard::~VideoCard()
 {
-    cout << "[INFO] - Вызван деструктор (VideoCard) " << this << endl;
+    //cout << "[INFO] - Вызван деструктор (VideoCard) " << this << endl;
 }
 void VideoCard::operator =(const VideoCard &other)
 {
-    cout << "[INFO] - Вызван оператор = (VideoCard) "<< this << endl;
+    //cout << "[INFO] - Вызван оператор = (VideoCard) "<< this << endl;
     Name = other.Name;
     Model = other.Model;
     Manufacturer = other.Manufacturer;
@@ -140,21 +140,21 @@ void VideoCard::print_in_line(ostream& os) const
 // Реализация методов класса Processor
 Processor::Processor()
 {
-    cout << "[INFO] - Вызван базовый конструктор (Processor) " << this << endl;
+    //cout << "[INFO] - Вызван базовый конструктор (Processor) " << this << endl;
     Cores = 0;
     Threads = 0;
     L2Cash = 0;
 }
 Processor::Processor(string Name, string Model, string Manufacturer, int Price, int Cores, int Threads, int L2Cash): Component(Name, Model, Manufacturer, Price)
 {
-    cout << "[INFO] - Вызван конструктор c параметрами (Processor) " << this << endl;
+    //cout << "[INFO] - Вызван конструктор c параметрами (Processor) " << this << endl;
     this->Cores = Cores;
     this->Threads = Threads;
     this->L2Cash = L2Cash;
 }
 Processor::Processor(const Processor &other): Component()
 {
-    cout << "[INFO] - Вызван конструктор копирования (Processor) " << this << endl;
+    //cout << "[INFO] - Вызван конструктор копирования (Processor) " << this << endl;
     Name = other.Name;
     Model = other.Model;
     Manufacturer = other.Manufacturer;
@@ -165,11 +165,11 @@ Processor::Processor(const Processor &other): Component()
 }
 Processor::~Processor()
 {
-    cout << "[INFO] - Вызван деструктор (Processor) " << this << endl;
+    //cout << "[INFO] - Вызван деструктор (Processor) " << this << endl;
 }
 void Processor::operator =(const Processor &other)
 {
-    cout << "[INFO] - Вызван оператор = (Processor) " << this << endl;
+    //cout << "[INFO] - Вызван оператор = (Processor) " << this << endl;
     Name = other.Name;
     Model = other.Model;
     Manufacturer = other.Manufacturer;
